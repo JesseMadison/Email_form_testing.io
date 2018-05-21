@@ -84,7 +84,7 @@ production:
   <<: *default
   database: alexholder_io_production
   url: <%= ENV['DATABASE_URL'] %>
-  host: localhost
+  #host: localhost
 
   #
   # username: alexholder_io
