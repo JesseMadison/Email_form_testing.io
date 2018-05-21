@@ -81,5 +81,7 @@ test:
 production:
   <<: *default
   database: alexholder_io_production
+  url: <%= ENV['DATABASE_URL'] %>
+
   username: alexholder_io
   password: <%= ENV['ALEXHOLDER_IO_DATABASE_PASSWORD'] %>
