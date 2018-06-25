@@ -1,6 +1,6 @@
-class CreateSellerBuyers < ActiveRecord::Migration[5.2]
+class CreateBuyerProducts < ActiveRecord::Migration[5.2]
   def change
-    create_table :seller_buyers do |t|
+    create_table :buyer_products do |t|
       t.references :user, foreign_key: true
       t.references :product, foreign_key: true
 

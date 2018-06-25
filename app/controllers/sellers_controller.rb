@@ -24,12 +24,12 @@ class SellersController < ApplicationController
   # POST /sellers
   # POST /sellers.json
   def create
-    @seller = Seller.new(seller_params)
-
+    @seller = Seller.new
+    @seller.user_id = current_user.id
     respond_to do |format|
       if @seller.save
-        format.html { redirect_to @seller, notice: 'Seller was successfully created.' }
-        format.json { render :show, status: :created, location: @seller }
+        format.html { redirect_to  new_product_path, notice: 'Seller was successfully created.' }
+        # format.json { render :show, status: :created, location: @seller }
       else
         format.html { render :new }
         format.json { render json: @seller.errors, status: :unprocessable_entity }

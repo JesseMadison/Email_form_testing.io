@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :seller_buyers
+  resources :buyer_products
   resources :attachments
   resources :products
   resources :sellers

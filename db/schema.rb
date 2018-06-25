@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_25_024935) do
+ActiveRecord::Schema.define(version: 2018_06_25_061542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,22 @@ ActiveRecord::Schema.define(version: 2018_06_25_024935) do
     t.index ["seller_id"], name: "index_attachments_on_seller_id"
   end
 
+  create_table "buyer_products", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_buyer_products_on_product_id"
+    t.index ["user_id"], name: "index_buyer_products_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer "price"
     t.integer "quanity"
     t.bigint "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["seller_id"], name: "index_products_on_seller_id"
   end
 
@@ -39,15 +49,6 @@ ActiveRecord::Schema.define(version: 2018_06_25_024935) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
-  create_table "seller_buyers", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_seller_buyers_on_product_id"
-    t.index ["user_id"], name: "index_seller_buyers_on_user_id"
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -75,9 +76,9 @@ ActiveRecord::Schema.define(version: 2018_06_25_024935) do
   end
 
   add_foreign_key "attachments", "sellers"
+  add_foreign_key "buyer_products", "products"
+  add_foreign_key "buyer_products", "users"
   add_foreign_key "products", "sellers"
   add_foreign_key "profiles", "users"
-  add_foreign_key "seller_buyers", "products"
-  add_foreign_key "seller_buyers", "users"
   add_foreign_key "sellers", "users"
 end

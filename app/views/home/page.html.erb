@@ -10,11 +10,8 @@
           <p>Im trying to intergrate my ERD into this two sided marketplace template</p>
           <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
           <p><a class="btn btn-primary btn-lg" href="contact#index" role="button">Contact Me</a></p>
-        </div>
-
-
-
-        <!-- <%= link_to 'sign_out', destroy_user_session_path, method: :delete %> -->
-
+          <!-- i dont wat to be taken through the form as there is nothing else that needs to be updated except for user_id, instead I would update this info direcrtly in the create method of seller controller as the form will redirect me there -->
+      <%= link_to 'Are you a seller?', sellers_path, method: :post, class: "btn btn-primary"  %>
+    </div>
     </body>
 </html>
