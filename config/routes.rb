@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contact', to: "contact#index"
+  post 'contact', to: "contact#mail"
   resources :profiles
   devise_for :users
 

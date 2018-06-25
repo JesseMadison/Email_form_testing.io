@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem 'cloudinary'
+gem 'mailgun-ruby', '~>1.1.6'
 
 #gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
