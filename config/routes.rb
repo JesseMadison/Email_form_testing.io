@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :seller_buyers
+  resources :attachments
+  resources :products
+  resources :sellers
   get 'contact', to: "contact#index"
   post 'contact', to: "contact#mail"
   resources :profiles
