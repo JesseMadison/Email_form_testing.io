@@ -1,3 +1,4 @@
 class Attachment < ApplicationRecord
-  belongs_to :seller
+  belongs_to :product
+  mount_uploader :image, ImageUploader
 end

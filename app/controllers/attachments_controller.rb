@@ -1,6 +1,6 @@
 class AttachmentsController < ApplicationController
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_product
   # GET /attachments
   # GET /attachments.json
   def index
@@ -25,10 +25,11 @@ class AttachmentsController < ApplicationController
   # POST /attachments.json
   def create
     @attachment = Attachment.new(attachment_params)
+    @attachment.product_id = @product.id
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
+        format.html { redirect_to product_path(@product), notice: 'Attachment was successfully created.' }
         format.json { render :show, status: :created, location: @attachment }
       else
         format.html { render :new }
@@ -67,8 +68,12 @@ class AttachmentsController < ApplicationController
       @attachment = Attachment.find(params[:id])
     end
 
+    def set_product
+      @product = Product.find(params[:product_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachment_params
-      params.require(:attachment).permit(:image, :seller_id)
+      params.require(:attachment).permit(:image, :product_id)
     end
+
 end

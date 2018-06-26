@@ -2,8 +2,8 @@
 
 one:
   image: MyString
-  seller: one
+  product: one
 
 two:
   image: MyString
-  seller: two
+  product: two

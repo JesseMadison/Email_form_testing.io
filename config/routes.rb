@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
+  #creating a nested route between products and attachments so that each product post can have multiple images
+  resources :products do
+    resources :attachments
+end
+
+
   resources :buyer_products
-  resources :attachments
   resources :products
   resources :sellers
   get 'contact', to: "contact#index"
@@ -8,7 +14,6 @@ Rails.application.routes.draw do
   resources :profiles
   devise_for :users
 
-  get 'home/page'
   #get 'welcome/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#page'

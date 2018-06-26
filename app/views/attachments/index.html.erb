@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Image</th>
-      <th>Seller</th>
+      <th>Product</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +15,7 @@
     <% @attachments.each do |attachment| %>
       <tr>
         <td><%= attachment.image %></td>
-        <td><%= attachment.seller %></td>
+        <td><%= attachment.product %></td>
         <td><%= link_to 'Show', attachment %></td>
         <td><%= link_to 'Edit', edit_attachment_path(attachment) %></td>
         <td><%= link_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

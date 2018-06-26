@@ -15,7 +15,7 @@ class AttachmentsTest < ApplicationSystemTestCase
     click_on "New Attachment"
 
     fill_in "Image", with: @attachment.image
-    fill_in "Seller", with: @attachment.seller_id
+    fill_in "Product", with: @attachment.product_id
     click_on "Create Attachment"
 
     assert_text "Attachment was successfully created"
@@ -27,7 +27,7 @@ class AttachmentsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Image", with: @attachment.image
-    fill_in "Seller", with: @attachment.seller_id
+    fill_in "Product", with: @attachment.product_id
     click_on "Update Attachment"
 
     assert_text "Attachment was successfully updated"

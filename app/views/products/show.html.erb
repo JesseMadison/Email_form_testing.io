@@ -16,6 +16,15 @@
   <%= @product.quanity %>
 </p>
 
+<%= render 'attachments/form', attachment: @attachment, product: @product %>
+
+
+<% @product.attachments.each do |attachment| %>
+
+   <%= image_tag(attachment.image_url) %>
+
+<% end %>
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
