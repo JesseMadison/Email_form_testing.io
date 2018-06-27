@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   @products = Product.all
 
-  @users = User.all
+  @attachment = Attachment.all
 
   end
 end

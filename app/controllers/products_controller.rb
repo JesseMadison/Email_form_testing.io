@@ -26,19 +26,13 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    puts "1111111111111111"
-    logger.debug(@product.inspect)
-    puts "1111111111111111"
+    
     @product.seller_id = current_user.seller.id
-    puts "22222221111111111"
-    logger.debug(@product.inspect)
-    puts "1111111111111111"
+
 
     respond_to do |format|
       if @product.save
-        puts "33333333311111111"
-        logger.debug(@product.inspect)
-        puts "1111111111111111"
+
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else

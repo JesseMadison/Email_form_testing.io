@@ -1,5 +1,13 @@
-<% @products.each do |products| %>
+<div class="newsfeed">
+  <% @products.each do |product| %>
+    <div id="<%= product.id %>" class="post">
+      <div class="top">
+        <%= product.name %>
+      </div>
+      
+
+        <%= image_tag product.attachments.first.image_url, class: "photo", :width => 500, :height => 500 %>
 
 
-
-<% end %>
+      <div class="btm">
+      <% end %>
